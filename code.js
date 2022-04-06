@@ -30,3 +30,28 @@ question_3.addEventListener('click', function(){
    $(answer_2).slideUp();
    $(answer_1).slideUp();
 })
+
+
+// custom cursor
+
+const cursor = document.querySelector('.custom-cursor');
+const callCursorP = document.querySelector('.call-cursor-for-p');
+const callCursorH1 = document.querySelector('.call-cursor-for-h1');
+
+callCursorP.addEventListener('mouseover' , function(){
+  cursor.style.transform = 'scale(6)';
+})
+callCursorP.addEventListener('mouseleave' , function(){
+  cursor.style.transform = 'scale(0)';
+})
+callCursorH1.addEventListener('mouseover' , function(){
+  cursor.style.transform = 'scale(6)';
+})
+callCursorH1.addEventListener('mouseleave' , function(){
+  cursor.style.transform = 'scale(0)';
+})
+
+document.addEventListener('mousemove' , (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+})
