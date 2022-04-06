@@ -9,6 +9,9 @@ html,body{
   scroll-behavior: smooth;
 }
 
+::selection{
+  background-color: tomato;
+}
 /* CSS FOR HEADER */
 
 .navbar{
@@ -76,6 +79,7 @@ html,body{
 /* hero section */
 
 .hero-section{
+  position: relative;
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -168,6 +172,23 @@ html,body{
     font-size: 1rem;
   }
 }
+
+.custom-cursor{
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.1s;
+  transform: translate(-50%,-50%) scale(0);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.scale5{
+  transform: scale(5);
+}
+
 
 /* SERVICES SECTION */
 
@@ -268,15 +289,24 @@ html,body{
 
 .question{
   cursor: pointer;
-  background-color: white;
-  color: black;
+  /* background-color: tomato; */
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
   font-size: 1.2rem;
   font-weight: 500;
   width: 30rem;
   margin: 0.5rem 0rem;
-  padding: 0.3rem 0rem;
+  padding: 0.5rem 0.5rem;
   text-align: center;
+  transition: 0.5s;
 }
+
+.question:hover{
+   background-color: tomato;
+   border: 1px solid tomato;
+  }
+
 .answer{
   color: white;
   font-size: 1.2rem;
@@ -309,12 +339,29 @@ html,body{
 
 @media screen and (max-width: 500px) {
   .question{
-    width: 20rem;
+    width: 25rem;
+    font-size: 1rem;
+  }
+  .answer{
+    width: 25rem;
+    font-size: 1rem;
   }
 }
+
+@media screen and (max-width: 420px){
+  .question{
+    width: 20rem;
+    font-size: 0.8rem;
+  }
+  .answer{
+    width: 20rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .question{
-    width: 17rem;
+    width: 18rem;
     font-size: 1rem;
   }
 }
