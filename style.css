@@ -1,84 +1,142 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;;
+/* global css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-html,body{
+
+html,
+body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-::selection{
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: tomato;
+  height: 5px;
+}
+
+::-moz-scrollbar{
+  width: 10px;
+}
+::-moz-scrollbar-thumb{
+  background-color: tomato;
+  height: 5px;
+}
+
+::selection {
   background-color: tomato;
 }
+
 /* CSS FOR HEADER */
 
-.navbar{
-    width: 100vw;
-    padding: 1rem 1.5rem 1rem 1.5rem;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid white;
+.navbar {
+  width: 100vw;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid white;
 }
 
+.logo-div h2 {
+  font-size: 3rem;
+  -webkit-text-stroke: 0.08rem white;
+  position: relative;
+}
 
-.header-icons-1 i, .header-icons-2 i{
+.logo-div h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
   color: white;
-  font-size: 30px;
-  margin: 0rem 1rem;
+  -webkit-text-stroke: 0rem white;
+  border-right: 2px solid white;
+  overflow: hidden;
+  animation: textStroke 5s 1s linear infinite;
 }
 
-.logo-div h2{
-    font-size: 2.5rem;
-    color: white;
+@keyframes textStroke {
+
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
 }
 
-.header-icons-mobile{
-  display: none;
-  margin: 1rem 0rem 0rem 0rem;
-}
-
-.header-icons-mobile i{
+.hire-me-btn a{
+  border: 1px solid white;
+  padding: 0.8rem 3rem;
+  background-color: black;
+  border-radius: 5px;
+  cursor: pointer;
   color: white;
-  font-size: 30px;
-  margin: 0rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.5s;
 }
+
+.hire-me-btn a:hover{
+  background-color: tomato;
+  border: 1px solid tomato;
+}
+
 
 @media screen and (max-width: 830px) {
-  .navbar{
+  .navbar {
     flex-direction: column;
   }
 
-.header-icons-mobile{
-  display: flex;
-}
-
-.header-icons-1 , .header-icons-2{
-  display: none;
-}
-}
-
-@media screen and (max-width: 450px) {
-  .logo-div h2{
-    font-size: 2rem;
-  }
-  .header-icons-mobile i{
-    font-size: 23px;
-    margin: 0rem 0.5rem;
+  .hire-me-btn{
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
   }
 }
-@media screen and (max-width: 350px) {
-  .logo-div h2{
-    font-size: 1.5rem;
+
+@media screen and (max-width: 500px) {
+  .logo-div h2 {
+    font-size: 2.5rem;
+   }
+
+   .hire-me-btn a{
+     padding: 0.5rem 2rem;
+   }
+}
+
+
+@media screen and (max-width: 430px) {
+  .logo-div h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .logo-div h2 {
+    font-size: 1.8rem;
   }
 }
 
 /* hero section */
 
-.hero-section{
+.hero-section {
   position: relative;
   background-color: black;
   display: flex;
@@ -88,7 +146,7 @@ html,body{
   padding: 4rem 1.5rem 4rem 1.5rem;
 }
 
-.hero-content{
+.hero-content {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -97,21 +155,23 @@ html,body{
   flex-basis: 50%;
 }
 
-.hero-content h1{
+.hero-content h1 {
+  font-family: 'Courgette', cursive;
+  font-weight: 300;
   font-size: 4rem;
   margin-bottom: 1rem;
   color: white;
 }
 
-.hero-content p{
+.hero-content p {
   color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 400;
   text-align: left;
   margin-bottom: 1rem;
 }
 
-.hero-image{
+.hero-image {
   flex-shrink: 0;
   flex-grow: 0;
   display: flex;
@@ -119,115 +179,125 @@ html,body{
   flex-basis: 50%;
 }
 
-.hero img{
-  width: 100%;
-}
 
 @media screen and (max-width: 600px) {
-  .hero-image img{
+  .hero-image img {
     width: 100%;
   }
 }
 
-.hero-image img{
-  transition: 0.5s;
-}
-
-.hero-image img:hover{
-  transform: scale(0.8);
-}
-
-@media screen and (max-width: 1118px){
-  .hero-section{
+@media screen and (max-width: 1118px) {
+  .hero-section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 4rem 1.5rem 0rem 1.5rem;
   }
-  
-  .hero-content{
+
+  .hero-content {
     justify-content: center;
   }
 
-  .hero-content p{
+  .hero-content p {
     text-align: center;
   }
-  .hero-content h1{
+
+  .hero-content h1 {
     display: flex;
     justify-content: center;
   }
-  .hero-content button{
+
+  .hero-content button {
     margin: 0 auto;
   }
-  .hero-image{
+
+  .hero-image {
     flex-basis: 100%;
     justify-content: center;
-}  
+  }
 }
 
-@media screen and (max-width: 468px){
-  .hero-content h1{
-   font-size: 2rem;
+@media screen and (max-width: 468px) {
+  .hero-content h1 {
+    font-size: 2rem;
   }
-  .hero-content p{
+
+  .hero-content p {
     font-size: 1rem;
   }
 }
 
-.custom-cursor{
+.custom-cursor {
   position: fixed;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: white;
   transition: 0.1s;
-  transform: translate(-50%,-50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
   pointer-events: none;
   mix-blend-mode: difference;
 }
 
-.scale5{
+.scale5 {
   transform: scale(5);
 }
 
 
 /* SERVICES SECTION */
 
-.services-heading h2{
+.services-heading {
+  background-color: black;
+}
+
+.services-heading h2 {
   text-align: center;
   color: white;
   font-size: 4rem;
-  background-color: black;
   display: flex;
   justify-content: center;
   padding: 4rem 0rem 2rem 0rem;
 }
 
-@media screen and (max-width: 500px) {
- .services-heading h2{
-   font-size: 3rem;
- } 
-}
-@media screen and (max-width: 440px) {
- .services-heading h2{
-   font-size: 2.5rem;
- } 
-}
-@media screen and (max-width: 440px) {
- .services-heading h2{
-   font-size: 2rem;
- } 
+@media screen and (max-width: 1118px){
+  .services-heading h2{
+    padding-top: 1rem;
+  }
 }
 
-.services-section{
+@media screen and (max-width: 620px) {
+  .services-heading h2 {
+    font-size: 3.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .services-heading h2 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .services-heading h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .services-heading h2 {
+    font-size: 2rem;
+  }
+}
+
+.services-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
 }
 
-.service-box{
+.service-box {
   border: 2px solid white;
-  margin: 15px ;
+  margin: 15px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -237,32 +307,32 @@ html,body{
   border-radius: 6px;
 }
 
-.service-box h1{
+.service-box h1 {
   color: white;
   text-align: center;
 }
 
-.service-box p{
+.service-box p {
   color: white;
 }
 
-.service-box span{
+.service-box span {
   margin-bottom: 1rem;
 }
 
- .service-box i{
-   color: white;
-   font-size: 40px;
- }
+.service-box i {
+  color: white;
+  font-size: 40px;
+}
 
- @media screen and (max-width: 970px){
-  .services-section{
+@media screen and (max-width: 970px) {
+  .services-section {
     flex-direction: column;
   }
- }
+}
 
- /* faqs */
-.faqs-section{
+/* faqs */
+.faqs-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -270,11 +340,11 @@ html,body{
   background-color: black;
 }
 
-.faqs-image img{
+.faqs-image img {
   width: 100%;
 }
 
-.faqs-QA{
+.faqs-QA {
   padding-bottom: 2rem;
   display: flex;
   justify-content: center;
@@ -283,11 +353,11 @@ html,body{
   background-color: black;
 }
 
-.faqs-QA i{
+.faqs-QA i {
   margin-left: 1rem;
 }
 
-.question{
+.question {
   cursor: pointer;
   /* background-color: tomato; */
   border: 1px solid white;
@@ -302,12 +372,12 @@ html,body{
   transition: 0.5s;
 }
 
-.question:hover{
-   background-color: tomato;
-   border: 1px solid tomato;
-  }
+.question:hover {
+  background-color: tomato;
+  border: 1px solid tomato;
+}
 
-.answer{
+.answer {
   color: white;
   font-size: 1.2rem;
   font-weight: 500;
@@ -318,86 +388,95 @@ html,body{
   /* transition: 0.5s; */
 }
 
-.answerentrance{
+.answerentrance {
   display: block;
 }
-.faq-heading h2{
+
+.faq-heading {
+  background-color: black;
+}
+
+.faq-heading h2 {
   text-align: center;
   color: white;
   font-size: 4rem;
-  background-color: black;
   display: flex;
   justify-content: center;
   padding: 4rem 0rem 2rem 0rem;
 }
 
 @media screen and (max-width: 1000px) {
-  .faqs-section{
+  .faqs-section {
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .question{
+  .question {
     width: 25rem;
     font-size: 1rem;
   }
-  .answer{
+
+  .answer {
     width: 25rem;
     font-size: 1rem;
   }
 }
 
-@media screen and (max-width: 420px){
-  .question{
+@media screen and (max-width: 420px) {
+  .question {
     width: 20rem;
     font-size: 0.8rem;
   }
-  .answer{
+
+  .answer {
     width: 20rem;
     font-size: 0.8rem;
   }
 }
 
 @media screen and (max-width: 350px) {
-  .question{
+  .question {
     width: 18rem;
     font-size: 1rem;
   }
 }
 
- /* css for footer */
+/* css for footer */
 
-   .footer{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: black;
-     border-top: 2px solid white;
-     flex-direction: row;
-     padding: 2rem 1rem 2rem 1rem;
-   }
-   .footer-item{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
-   }
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-top: 2px solid white;
+  flex-direction: row;
+  padding: 2rem 1rem 2rem 1rem;
+}
 
-   .footer-item span{
-     margin: 0px 10px 0px 10px;
-   }
-   .footer-item span i{
-     color: white;
-     font-size: 30px;
-  }
+.footer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .footer-item h2{
-    text-align: center;
-    color: white;
-    font-size: 2.5rem;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    padding: 0rem 0rem 1rem 0rem;
-  }
+.footer-item span {
+  margin: 0px 10px 0px 10px;
+}
+
+.footer-item span i {
+  color: white;
+  font-size: 30px;
+  position: relative;
+}
+
+.footer-item h2 {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding: 0rem 0rem 1rem 0rem;
+}
