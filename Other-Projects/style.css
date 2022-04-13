@@ -1,0 +1,148 @@
+/* global */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+/* Header */
+
+.navbar {
+    width: 100vw;
+    /* height: 20vh; */
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-div {
+    flex: 30%;
+    justify-content: flex-start;
+}
+.logo-div h2 {
+    font-size: 2.4rem;
+    color: white;
+}
+.links-div {
+    flex: 70%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+.links-div ul {
+    display: flex;
+    list-style: none;
+}
+.links-div li {
+    padding: 0px 15px 0px 15px;
+    list-style: none;
+    font-size: 1.3rem;
+    position: relative;
+}
+.links-div li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: wheat;
+    transition: 0.5s;
+}
+.links-div li:hover::before {
+    width: 100%;
+}
+.links-div a {
+    color: white;
+    text-decoration: none;
+}
+.toggle-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 999;
+}
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+@media screen and (max-width: 970px) {
+    .navbar{
+        flex-direction: column;
+    }
+    
+}
+@media screen and (max-width: 468px) {
+    
+}
+.onelargebox{
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+.section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80vh;
+    background-color: brown;
+    color: white;
+    padding: 4rem 2rem;
+}
+h2{
+    font-size: 6rem;
+    padding-bottom: 2rem;
+}
+p{
+    font-size: 1.3rem;
+}
+.home, .about , .contact , .services , .reviews{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition:  0.5s;
+}
+.about{
+    background-color: seagreen;
+}
+.contact{
+    background-color: black;
+}
+.services{
+    background-color: rebeccapurple;
+}
+.reviews{
+    background-color: slategray;
+}
+.home{
+    transform: translateY(0)!important; 
+}
+
